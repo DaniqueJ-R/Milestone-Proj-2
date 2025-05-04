@@ -52,6 +52,11 @@ function searchNearby(location, type, elementId) {
       });
     }
   });
+
+  map.addListener("idle", () => {
+    const center = map.getCenter();
+    searchNearby(center, "restaurant", "restaurants");
+  });
 }
 
 function createMarker(place) {
