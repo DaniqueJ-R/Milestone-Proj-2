@@ -1,76 +1,66 @@
+
 let map;
-let service;
-let markers = [];
 
-function initMap() {
-  const defaultLocation = { lat: 48.8566, lng: 2.3522 }; // Paris
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: defaultLocation,
-    zoom: 13,
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+
+  const userLocation = { lat: 51.406, lng: 0.013 }; // example location (can be dynamic)
+  map = new Map(document.getElementById("map"), {
+    center: userLocation,
+    zoom: 14,
   });
 
-  document.getElementById('cityInput').addEventListener('change', () => {
-    const city = document.getElementById('cityInput').value;
-    geocodeCity(city);
-  });
+//   searchNearby("hotels", userLocation);
+  searchNearby("restaurants", userLocation);
+//   searchNearby("attractions", userLocation);
 }
 
-function geocodeCity(city) {
-  const geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: city }, (results, status) => {
-    if (status === "OK") {
-      const location = results[0].geometry.location;
-      map.setCenter(location);
-      map.setZoom(13);
-      clearMarkers();
-      searchNearby(location, 'tourist_attraction', 'attractions');
-      searchNearby(location, 'restaurant', 'restaurants');
-      searchNearby(location, 'lodging', 'hotels');
-    } else {
-      alert("Could not find location: " + status);
+async function searchNearby(query, location, radius = 1500) {
+  try {
+    const { Place } = await google.maps.importLibrary("places");
+
+    const place = new Place();
+
+    const request = {
+      textQuery: query,
+      locationBias: {
+        center: location,
+        radius: radius,
+      },
+      fields: ["displayName", "location", "formattedAddress", "photos"],
+    };
+
+    const { places } = await place.searchByText(request);
+
+    if (!places || places.length === 0) {
+      console.warn(`No places found for ${query}`);
+      return;
     }
-  });
-}
 
-function searchNearby(location, type, elementId) {
-  const request = {
-    location,
-    radius: 2000,
-    type: [type]
-  };
+    places.forEach((place) => {
+      const position = place.location;
 
-  service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, (results, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      const list = document.getElementById(elementId);
-      list.innerHTML = '';
-      results.slice(0, 5).forEach(place => {
-        createMarker(place);
-        const li = document.createElement('li');
-        li.textContent = place.name;
-        list.appendChild(li);
+      const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: place.displayName || "Unknown",
       });
-    }
-  });
 
-  map.addListener("idle", () => {
-    const center = map.getCenter();
-    searchNearby(center, "restaurant", "restaurants");
-  });
-}
+      const content = `
+        <div>
+          <strong>${place.displayName}</strong><br />
+          ${place.formattedAddress || ""}
+          ${place.photos?.[0] ? `<br /><img src="${place.photos[0].getURL()}" width="100" />` : ""}
+        </div>
+      `;
 
-function createMarker(place) {
-  const marker = new google.maps.Marker({
-    map,
-    position: place.geometry.location,
-  });
-  markers.push(marker);
-}
+      const infoWindow = new google.maps.InfoWindow({
+        content: content,
+      });
 
-function clearMarkers() {
-  markers.forEach(m => m.setMap(null));
-  markers = [];
-  ['attractions', 'restaurants', 'hotels'].forEach(id => {
-    document.getElementById(id).innerHTML = '';
-  });
+      marker.addListener("click", () => infoWindow.open(map, marker));
+    });
+  } catch (error) {
+    console.error("Error during nearby search:", error);
+  }
 }
