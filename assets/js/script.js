@@ -1,66 +1,108 @@
 
 let map;
+let service;
+let markers = [];
 
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
 
-  const userLocation = { lat: 51.406, lng: 0.013 }; // example location (can be dynamic)
+  // Set the user's location (you might get this from geolocation or hardcode it)
+  const userLocation = { lat: 51.406, lng: 0.013 };
+
+  // Initialize the map
   map = new Map(document.getElementById("map"), {
     center: userLocation,
-    zoom: 14,
+    zoom: 15,
   });
 
-//   searchNearby("hotels", userLocation);
+  // Now trigger the nearby search
+  searchNearby("hotels", userLocation);
   searchNearby("restaurants", userLocation);
-//   searchNearby("attractions", userLocation);
 }
 
-async function searchNearby(query, location, radius = 1500) {
-  try {
-    const { Place } = await google.maps.importLibrary("places");
 
-    const place = new Place();
 
-    const request = {
-      textQuery: query,
-      locationBias: {
-        center: location,
-        radius: radius,
-      },
-      fields: ["displayName", "location", "formattedAddress", "photos"],
-    };
 
-    const { places } = await place.searchByText(request);
-
-    if (!places || places.length === 0) {
-      console.warn(`No places found for ${query}`);
-      return;
+function geocodeCity(city) {
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ address: city }, (results, status) => {
+    if (status === "OK") {
+      const location = results[0].geometry.location;
+      map.setCenter(location);
+      map.setZoom(13);
+      clearMarkers();
+      searchNearby(location, 'tourist_attraction', 'attractions');
+      searchNearby(location, 'restaurant', 'restaurants');
+      searchNearby(location, 'lodging', 'hotels');
+    } else {
+      alert("Could not find location: " + status);
     }
+  });
+}
 
-    places.forEach((place) => {
-      const position = place.location;
 
-      const marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        title: place.displayName || "Unknown",
+  
+
+async function searchNearby(type, location, radius = 1500) {
+    const apiKey = 'AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM';
+  
+    const url = `https://places.googleapis.com/v1/places:searchText`;
+  
+    const requestBody = {
+      textQuery: type,
+      locationBias: {
+        circle: {
+          center: {
+            latitude: location.lat,
+            longitude: location.lng
+          },
+          radius: radius
+        }
+      },
+      maxResultCount: 10
+    };
+  
+    try {
+      const response = await fetch(`${url}?key=${apiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Goog-Api-Key': apiKey,
+          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.photos'
+        },
+        body: JSON.stringify(requestBody)
       });
-
-      const content = `
-        <div>
-          <strong>${place.displayName}</strong><br />
-          ${place.formattedAddress || ""}
-          ${place.photos?.[0] ? `<br /><img src="${place.photos[0].getURL()}" width="100" />` : ""}
-        </div>
-      `;
-
-      const infoWindow = new google.maps.InfoWindow({
-        content: content,
-      });
-
-      marker.addListener("click", () => infoWindow.open(map, marker));
-    });
-  } catch (error) {
-    console.error("Error during nearby search:", error);
+  
+      const data = await response.json();
+      console.log('✅ Nearby places for', type, ':', data);
+  
+      if (data.places && Array.isArray(data.places)) {
+        data.places.forEach(place => {
+          const name = place.displayName?.text || 'Unknown';
+          const address = place.formattedAddress || 'No address available';
+          console.log(`- ${name}, ${address}`);
+        });
+      } else {
+        console.warn('⚠️ No places found for:', type);
+      }
+  
+    } catch (error) {
+      console.error('❌ Error in searchNearby:', error);
+    }
   }
+
+function createMarker(place) {
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+  markers.push(marker);
+}
+
+function clearMarkers() {
+  markers.forEach(m => m.setMap(null));
+  markers = [];
+  ['attractions', 'restaurants', 'hotels'].forEach(id => {
+    document.getElementById(id).innerHTML = '';
+  });
 }
