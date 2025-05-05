@@ -25,7 +25,7 @@
 <body>
 
     <header>
-        <section id="step0" class="intro-text container my-4 text-center">
+        <section id="step0" class="intro-text container my-4 text-center hidden">
             <div>
               <img src="/assets/images/logo.png" alt="Roamly Logo" class="logo">
               <br>
@@ -38,14 +38,15 @@
           </section>
     </header>
 
-    <section id="step1" class="hidden">
+    <section id="step1" class="hidde">
 <div class="container my-4">
-  <h2 class="text-center">Find Your Next Holiday Destination</h2>
-  <p class="text-center">Search for a city to explore attractions, accommodations, and restaurants.</p>
+  <h2 class="text-center display-3">Find Your Next Holiday Destination</h2>
+  <p id="instructions" class="text-center text-medium">Search for a city to explore attractions, accommodations, and restaurants.</p>
 
   <div class="row mb-4 search-bar">
     <div class="col-md-8 offset-md-2 search-box">
-      <input type="text" id="cityInput" class="form-control" placeholder="Enter a city name..."> <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="cityInput" class="form-control" placeholder="Enter a city name..."> 
     </div>
   </div>
 

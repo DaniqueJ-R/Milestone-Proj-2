@@ -187,6 +187,13 @@ li:hover {
   cursor: pointer;
 }
 
+/* #instructions {
+  margin-left: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -10px;
+} */
+
 /* Footer section */
 footer {
     margin-top: 8rem;
@@ -275,5 +282,25 @@ footer {
 
 .follow-us {
 margin-right: 42px;
+}
+
+.search-box input {
+  position: absolute;
+  right: 6%;
+  width: 84%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+  color: var(--highlight-color);
+  background-color: transparent;
+}
+
+#instructions {
+  margin-left: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 }
