@@ -127,7 +127,7 @@ body {
     margin: 0;
   }
   
-  #attractions li {
+ li {
     background-color: #ffffff;
     padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
@@ -137,7 +137,7 @@ body {
     transition: background-color 0.2s ease;
   }
   
-  #attractions li:hover {
+ li:hover {
     background-color: #f1f1f1;
     cursor: pointer;
   }
