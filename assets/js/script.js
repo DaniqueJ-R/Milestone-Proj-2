@@ -11,22 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-function nextFunction() {
+  function nextFunction() {
     let currentPage = document.getElementById(`step${stepTracker.currentStep}`);
     if (currentPage) {
-      currentPage.classList.remove("active");
+      currentPage.classList.add("hidden");
     }
   
     stepTracker.currentStep++;
   
     let nextPage = document.getElementById(`step${stepTracker.currentStep}`);
     if (nextPage) {
-      nextPage.classList.add("active");
+      nextPage.classList.remove("hidden");
     }
   
-    if (stepTracker.currentStep > 5) {
-      // Assuming there are 3 steps (0, 1, 2) is actually 5 steps, update later
-      stepTracker.currentStep = 5; // Prevent going beyond the last step
+    if (stepTracker.currentStep > 2) {
+      stepTracker.currentStep = 2; // Prevent going beyond the last step
     }
   }
 
