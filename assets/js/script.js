@@ -3,37 +3,68 @@ let markers = [];
 
 // Initialize the map
 function initMap() {
-  const defaultLocation = { lat: 48.8566, lng: 2.3522 }; // Paris
-
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: defaultLocation,
-    zoom: 13,
-  });
-
-  // Search on map idle
-  map.addListener("idle", () => {
-    const center = map.getCenter();
-    const location = {
-      lat: center.lat(),
-      lng: center.lng(),
-    };
-    clearMarkers();
+    const fallbackLocation = { lat: 48.8566, lng: 2.3522 }; // Paris
+  
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: fallbackLocation,
+      zoom: 13,
+    });
+  
+    // Try to use user's location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+  
+          map.setCenter(userLocation);
+          map.setZoom(14);
+  
+          searchNearby("tourist attractions", userLocation, "attractions");
+          searchNearby("restaurants", userLocation, "restaurants");
+          searchNearby("hotels", userLocation, "hotels");
+        },
+        (error) => {
+          console.warn("Geolocation failed or was denied. Using fallback location.");
+          runDefaultSearch(fallbackLocation);
+        }
+      );
+    } else {
+      console.warn("Geolocation not supported. Using fallback location.");
+      runDefaultSearch(fallbackLocation);
+    }
+  
+    // Handle map movement
+    map.addListener("idle", () => {
+      const center = map.getCenter();
+      const location = {
+        lat: center.lat(),
+        lng: center.lng(),
+      };
+      clearMarkers();
+      searchNearby("tourist attractions", location, "attractions");
+      searchNearby("restaurants", location, "restaurants");
+      searchNearby("hotels", location, "hotels");
+    });
+  
+    // City input
+    document.getElementById("cityInput").addEventListener("change", () => {
+      const city = document.getElementById("cityInput").value;
+      geocodeCity(city);
+    });
+  }
+  
+  // Helper to run fallback search
+  function runDefaultSearch(location) {
+    map.setCenter(location);
+    map.setZoom(13);
     searchNearby("tourist attractions", location, "attractions");
     searchNearby("restaurants", location, "restaurants");
     searchNearby("hotels", location, "hotels");
-  });
-
-  // Search by city
-  document.getElementById("cityInput").addEventListener("change", () => {
-    const city = document.getElementById("cityInput").value;
-    geocodeCity(city);
-  });
-
-  // Initial load
-  searchNearby("tourist attractions", defaultLocation, "attractions");
-  searchNearby("restaurants", defaultLocation, "restaurants");
-  searchNearby("hotels", defaultLocation, "hotels");
-}
+  }
+  
 
 // Geocode city name into coordinates
 function geocodeCity(city) {
@@ -132,3 +163,4 @@ function clearMarkers() {
     if (list) list.innerHTML = "";
   });
 }
+
