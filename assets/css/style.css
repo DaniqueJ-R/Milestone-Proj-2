@@ -1,3 +1,54 @@
+/*Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+/* CSS Variables */
+:root {
+  --main-font: "Boldonse", sans-serif;
+  --paragraph-font: "IBM Plex Sans", sans-serif;
+  --background-color-1: #ff894c;
+  /* Orange */
+  --background-color-2: #ffbd43;
+  --Nav-color: #3b6267;
+  /* Mute GReen */
+  --primary-color: #092650;
+  /* Dark Blue */
+  --secondary-color: #3e8dec;
+  /*Blue*/
+  --highlight-color: #51a3ee;
+  /* Purple */ 
+  --white: #ffffff;
+  /* White */
+  --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+/* Global Styles */
+
+body {
+    max-width: 2000px;
+    max-height: 1500px;
+    margin: 0px auto;
+    background: radial-gradient(
+      farthest-corner at 58% 12%,
+      var(--background-color-2),
+      var(--background-color-1)
+    );
+    font-family: var(--paragraph-font);
+    color: var(--secondary-color) !important;
+    padding: 20px !important;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    font-size: 150px;
+    margin-top: -28px;
+    margin-left: 59px;
+    margin-bottom: -18px;
+    list-style-type: none;
+  }
+
 
 #map {
   height: 500px;
