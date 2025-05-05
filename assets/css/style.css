@@ -49,6 +49,15 @@ body {
     list-style-type: none;
   }
 
+  .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem transparent;
+
+  }
+
 
   /* Search bar styles */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
@@ -74,16 +83,16 @@ body {
   
   .search-box input
    {
-      position: absolute;
-      right: -3%;
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-      padding-left: 1rem;
-      font-size: 1rem;
-      color: var(--highlight-color);
-      background-color: transparent;
+    position: absolute;
+    right: 2%;
+    width: 96%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: var(--highlight-color);
+    background-color: transparent;
   }
   
   .search-box i {

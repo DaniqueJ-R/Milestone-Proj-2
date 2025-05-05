@@ -3,6 +3,14 @@ let map;
 let markers = [];
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const nextPageIntro = document.getElementById("nextPageIntro");
+
+    if (nextPageIntro) {
+      nextPageIntro.addEventListener("click", nextFunction);
+    }
+  });
+
 function nextFunction() {
     let currentPage = document.getElementById(`step${stepTracker.currentStep}`);
     if (currentPage) {
