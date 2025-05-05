@@ -15,7 +15,7 @@
   --secondary-color: #3e8dec;
   /*Blue*/
   --highlight-color: #51a3ee;
-  /* Purple */ 
+  /* Purple */
   --white: #ffffff;
   /* White */
   --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -24,89 +24,119 @@
 /* Global Styles */
 
 body {
-    max-width: 2000px;
-    max-height: 1500px;
-    margin: 0px auto;
-    background: radial-gradient(
-      farthest-corner at 58% 12%,
-      var(--background-color-2),
-      var(--background-color-1)
-    );
-    font-family: var(--paragraph-font);
-    color: var(--secondary-color) !important;
-    padding: 20px !important;
+  max-width: 2000px;
+  max-height: 1500px;
+  margin: 0px auto;
+  background: radial-gradient(
+    farthest-corner at 58% 12%,
+    var(--background-color-2),
+    var(--background-color-1)
+  );
+  font-family: var(--paragraph-font);
+  color: var(--secondary-color) !important;
+  padding: 20px !important;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+  font-size: 150px;
+  margin-top: -28px;
+  margin-left: 59px;
+  margin-bottom: -18px;
+  list-style-type: none;
+}
+
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem transparent;
+}
+.text-medium {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+.cust-text-big {
+  font-size: 37px;
+  font-weight: bold;
+}
+
+/* Buttons */
+
+.btn {
+    background: #fff;
+    width: 45%;
+    padding: 2.2% 0%;
+    color: var(--highlight-color);
+    margin-left: 78px;
+    margin-top: 60px;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 30px;
+    border: none;
   }
   
-  h1,
-  h2,
-  h3 {
-    font-family: var(--primary-font);
-    color: var(--primary-color);
-    font-size: 150px;
-    margin-top: -28px;
-    margin-left: 59px;
-    margin-bottom: -18px;
-    list-style-type: none;
+  .btn:hover {
+    background: var(--highlight-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
+  
+  /* Buttons ends */
 
-  .form-control:focus {
-    color: var(--bs-body-color);
-    background-color: var(--bs-body-bg);
-    border-color: transparent;
-    outline: 0;
-    box-shadow: 0 0 0 .25rem transparent;
-
-  }
-
-
-  /* Search bar styles */
+/* Search bar styles */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
 
 .search-bar {
-    position: relative;
-    left: 18%;
-    display: flex;
-    width: 70%;
-    height: 50px;
-    border-radius: 25px;
-    background-color: var(--white);
-    box-shadow: var(--shadow);
+  position: relative;
+  left: 18%;
+  display: flex;
+  width: 70%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
 }
 
 .search-box {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding-right: 1rem;
-    color: var(--highlight-color);
-  }
-  
-  .search-box input
-   {
-    position: absolute;
-    right: 2%;
-    width: 96%;
-    height: 100%;
-    border: none;
-    outline: none;
-    padding-left: 1rem;
-    font-size: 1rem;
-    color: var(--highlight-color);
-    background-color: transparent;
-  }
-  
-  .search-box i {
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .search-box input::placeholder {
-    color: var(--highlight-color);
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  /* Search bar styles end */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 1rem;
+  color: var(--highlight-color);
+}
 
+.search-box input {
+  position: absolute;
+  right: 2%;
+  width: 96%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+  color: var(--highlight-color);
+  background-color: transparent;
+}
+
+.search-box i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.search-box input::placeholder {
+  color: var(--highlight-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+/* Search bar styles end */
 
 #map {
   height: 500px;
@@ -117,37 +147,36 @@ body {
 }
 
 .col-md-4 {
-    padding: 1rem;
-    background-color: #f8f9fa; /* light background */
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .col-md-4 h5 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #343a40; /* dark gray */
-    font-weight: 600;
-  }
-  
-  #attractions {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
- li {
-    background-color: #ffffff;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-left: 4px solid #007bff; /* blue accent */
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.2s ease;
-  }
-  
- li:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
-  }
-  
+  padding: 1rem;
+  background-color: #f8f9fa; /* light background */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col-md-4 h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #343a40; /* dark gray */
+  font-weight: 600;
+}
+
+#attractions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #007bff; /* blue accent */
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
