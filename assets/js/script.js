@@ -1,5 +1,26 @@
+const stepTracker = { currentStep: 0 };
 let map;
 let markers = [];
+
+
+function nextFunction() {
+    let currentPage = document.getElementById(`step${stepTracker.currentStep}`);
+    if (currentPage) {
+      currentPage.classList.remove("active");
+    }
+  
+    stepTracker.currentStep++;
+  
+    let nextPage = document.getElementById(`step${stepTracker.currentStep}`);
+    if (nextPage) {
+      nextPage.classList.add("active");
+    }
+  
+    if (stepTracker.currentStep > 5) {
+      // Assuming there are 3 steps (0, 1, 2) is actually 5 steps, update later
+      stepTracker.currentStep = 5; // Prevent going beyond the last step
+    }
+  }
 
 // Initialize the map
 function initMap() {
