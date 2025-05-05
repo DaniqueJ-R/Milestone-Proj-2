@@ -1,28 +1,41 @@
-
 let map;
-let service;
 let markers = [];
 
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+// Initialize the map
+function initMap() {
+  const defaultLocation = { lat: 48.8566, lng: 2.3522 }; // Paris
 
-  // Set the user's location (you might get this from geolocation or hardcode it)
-  const userLocation = { lat: 51.406, lng: 0.013 };
-
-  // Initialize the map
-  map = new Map(document.getElementById("map"), {
-    center: userLocation,
-    zoom: 15,
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: defaultLocation,
+    zoom: 13,
   });
 
-  // Now trigger the nearby search
-  searchNearby("hotels", userLocation);
-  searchNearby("restaurants", userLocation);
+  // Search on map idle
+  map.addListener("idle", () => {
+    const center = map.getCenter();
+    const location = {
+      lat: center.lat(),
+      lng: center.lng(),
+    };
+    clearMarkers();
+    searchNearby("tourist attractions", location, "attractions");
+    searchNearby("restaurants", location, "restaurants");
+    searchNearby("hotels", location, "hotels");
+  });
+
+  // Search by city
+  document.getElementById("cityInput").addEventListener("change", () => {
+    const city = document.getElementById("cityInput").value;
+    geocodeCity(city);
+  });
+
+  // Initial load
+  searchNearby("tourist attractions", defaultLocation, "attractions");
+  searchNearby("restaurants", defaultLocation, "restaurants");
+  searchNearby("hotels", defaultLocation, "hotels");
 }
 
-
-
-
+// Geocode city name into coordinates
 function geocodeCity(city) {
   const geocoder = new google.maps.Geocoder();
   geocoder.geocode({ address: city }, (results, status) => {
@@ -30,79 +43,92 @@ function geocodeCity(city) {
       const location = results[0].geometry.location;
       map.setCenter(location);
       map.setZoom(13);
+
+      const loc = {
+        lat: location.lat(),
+        lng: location.lng(),
+      };
       clearMarkers();
-      searchNearby(location, 'tourist_attraction', 'attractions');
-      searchNearby(location, 'restaurant', 'restaurants');
-      searchNearby(location, 'lodging', 'hotels');
+      searchNearby("tourist attractions", loc, "attractions");
+      searchNearby("restaurants", loc, "restaurants");
+      searchNearby("hotels", loc, "hotels");
     } else {
       alert("Could not find location: " + status);
     }
   });
 }
 
+// Search using new Places API v1 (HTTP)
+async function searchNearby(query, location, elementId, radius = 2000) {
+  const apiKey = "AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM"; // 🔒 Replace with your actual API key
 
-  
+  const url = `https://places.googleapis.com/v1/places:searchText?key=${apiKey}`;
 
-async function searchNearby(type, location, radius = 1500) {
-    const apiKey = 'AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM';
-  
-    const url = `https://places.googleapis.com/v1/places:searchText`;
-  
-    const requestBody = {
-      textQuery: type,
-      locationBias: {
-        circle: {
-          center: {
-            latitude: location.lat,
-            longitude: location.lng
-          },
-          radius: radius
-        }
-      },
-      maxResultCount: 10
-    };
-  
-    try {
-      const response = await fetch(`${url}?key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Goog-Api-Key': apiKey,
-          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.photos'
+  const requestBody = {
+    textQuery: query,
+    locationBias: {
+      circle: {
+        center: {
+          latitude: location.lat,
+          longitude: location.lng,
         },
-        body: JSON.stringify(requestBody)
-      });
-  
-      const data = await response.json();
-      console.log('✅ Nearby places for', type, ':', data);
-  
-      if (data.places && Array.isArray(data.places)) {
-        data.places.forEach(place => {
-          const name = place.displayName?.text || 'Unknown';
-          const address = place.formattedAddress || 'No address available';
-          console.log(`- ${name}, ${address}`);
-        });
-      } else {
-        console.warn('⚠️ No places found for:', type);
-      }
-  
-    } catch (error) {
-      console.error('❌ Error in searchNearby:', error);
-    }
-  }
+        radius: radius,
+      },
+    },
+    maxResultCount: 5,
+  };
 
-function createMarker(place) {
-  const marker = new google.maps.Marker({
-    map,
-    position: place.geometry.location,
-  });
-  markers.push(marker);
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.location,places.photos",
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    const data = await response.json();
+
+    const list = document.getElementById(elementId);
+    list.innerHTML = "";
+
+    if (data.places && data.places.length > 0) {
+      data.places.forEach((place) => {
+        const name = place.displayName?.text || "Unknown Place";
+        const address = place.formattedAddress || "No address";
+
+        // Add marker to map
+        const lat = place.location.latitude;
+        const lng = place.location.longitude;
+        const marker = new google.maps.Marker({
+          map,
+          position: { lat, lng },
+          title: name,
+        });
+        markers.push(marker);
+
+        // Append to list
+        const li = document.createElement("li");
+        li.textContent = `${name} – ${address}`;
+        list.appendChild(li);
+      });
+    } else {
+      console.warn(`No places found for: ${query}`);
+    }
+  } catch (error) {
+    console.error(`❌ Error during Places API search for "${query}":`, error);
+  }
 }
 
+// Clear markers and results
 function clearMarkers() {
-  markers.forEach(m => m.setMap(null));
+  markers.forEach((m) => m.setMap(null));
   markers = [];
-  ['attractions', 'restaurants', 'hotels'].forEach(id => {
-    document.getElementById(id).innerHTML = '';
+
+  ["attractions", "restaurants", "hotels"].forEach((id) => {
+    const list = document.getElementById(id);
+    if (list) list.innerHTML = "";
   });
 }
