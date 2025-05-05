@@ -47,6 +47,7 @@ h3 {
   margin-left: 59px;
   margin-bottom: -18px;
   list-style-type: none;
+  font-weight: bold;
 }
 
 .hidden {
@@ -151,10 +152,10 @@ h3 {
   margin-top: 20px;
 }
 
-.col-md-4 {
+/* .col-md-4 {
   padding: 1rem;
   background-color: #f8f9fa; /* light background */
-  border-radius: 10px;
+  /* border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,8 +163,8 @@ h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #343a40; /* dark gray */
-  font-weight: 600;
-}
+  /* font-weight: 600; */
+/* } */
 
 #attractions {
   list-style: none;
@@ -226,3 +227,32 @@ footer {
     color: var(--primary-color);
   }
   
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (max-width: 576px) {
+    h1, h2, h3 {
+      font-family: var(--primary-font);
+      color: var(--primary-color);
+      font-size: 73px;
+      margin-top: -25px;
+      margin-left: -3px;
+      margin-bottom: -10px;
+      list-style-type: none;
+      font-weight: bold;
+  }
+
+  .text-medium {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.logo {
+  width: 50%;
+  height: auto;
+  margin-left: 0px;
+  margin-top: -20px;
+  margin-bottom: 9px;
+  }
+
+}
