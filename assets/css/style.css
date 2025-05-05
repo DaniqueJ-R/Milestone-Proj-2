@@ -144,6 +144,15 @@ h3 {
 }
 /* Search bar styles end */
 
+
+.display-3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: -20px;
+  margin-left: 0px;
+}
+
 #map {
   height: 500px;
   width: 100%;
@@ -152,19 +161,19 @@ h3 {
   margin-top: 20px;
 }
 
-/* .col-md-4 {
+.result-background{
   padding: 1rem;
   background-color: #f8f9fa; /* light background */
-  /* border-radius: 10px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.col-md-4 h5 {
+.result-background h5 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #343a40; /* dark gray */
-  /* font-weight: 600; */
-/* } */
+  font-weight: 600;
+}
 
 #attractions {
   list-style: none;
@@ -302,5 +311,9 @@ margin-right: 42px;
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.result-background{
+  margin: 1rem 0rem;
 }
 }
