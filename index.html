@@ -1,114 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Roamly | Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-  name="description"
-  content="Discover your perfect holiday destination with Roamly. Explore cities, attractions, and experiences tailored to your travel style."
-/>
-<meta
-  name="keywords"
-  content="Roamly, travel planner, holiday destinations, vacation search, travel map, explore cities, travel guide"
-/>
-<!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8">
+    <title>Roamly | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover your perfect holiday destination with Roamly. Explore cities, attractions, and experiences tailored to your travel style.">
+    <meta name="keywords" content="Roamly, travel planner, holiday destinations, vacation search, travel map, explore cities, travel guide">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
     <header>
-        <section id="step0" class="intro-text container my-4 text-center hidde">
-            <div>
-              <img src="/assets/images/logo.png" alt="Roamly Logo" class="logo">
-              <!-- <br> -->
-              <span class="welcome-text">Welcome to</span>
-              <h1 class="col-12 col-md-4" id="title">Roamly</h1>
-              <span class="text-medium">Discover where to next!</span>   
-              <br>             
-              <button class="btn" id="nextPageIntro">Lets go!</button>
-            </div>
-          </section>
+      <section id="step0" class="intro-text container my-4 text-center hidde">
+        <div>
+          <img src="assets/images/logo.png" alt="Roamly Logo" class="logo">
+          <!-- <br> -->
+          <span class="welcome-text">Welcome to</span>
+          <h1 class="col-12 col-md-4" id="title">Roamly</h1>
+          <span class="text-medium">Discover where to next!</span>
+          <br>
+          <button class="btn" id="nextPageIntro">Lets go!</button>
+        </div>
+      </section>
     </header>
-
     <section id="step1" class="hidden">
-<div class="container my-4">
-  <h2 class="text-center display-3">Find Your Next Holiday Destination</h2>
-  <p id="instructions" class="text-center text-medium">Search for a city to explore attractions, accommodations, and restaurants.</p>
-
-  <div class="row mb-4 search-bar">
-    <div class="col-md-8 offset-md-2 search-box">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="cityInput" class="form-control" placeholder="Enter a city name..."> 
-    </div>
-  </div>
-
-  <div id="map" class="rounded shadow"></div>
-
-  <div class="results row text-center">
-    <div class="shadow result-background col-md-4"><h5>Attractions</h5><ul id="attractions" class="list-unstyled"></ul></div>
-    <div class="shadow result-background col-md-4"><h5>Hotels</h5><ul id="hotels" class="list-unstyled"></ul></div>
-    <div class="shadow result-background col-md-4"><h5>Restaurants</h5><ul id="restaurants" class="list-unstyled"></ul></div>
-  </div>
-</div>
-</section>
-
-<footer class="container section">
-    <div class="footer-links">
-      <span class="follow-us col-12 col-md-4">
-        <span>Follow us on social media:</span>
-        <a href="https://www.instagram.com" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com" target="_blank">
-          <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://www.twitter.com" target="_blank">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-      </span>
-      <span class="important col-12 col-md-4">
-        |
-        <a href="https://www.google.com/maps/about/" target="_blank">About</a>
-        |
-        <a href="https://support.google.com/maps/?hl=en" target="_blank">Contact</a>
-        |
-        <a href="https://maps.google.com/intl/en-US/policies/privacy/archive/20171002/" target="_blank">Privacy Policy</a>
-        |
-        <a href="https://support.google.com/mapcontentpartners/answer/11974690?hl=en" target="_blank">Terms of Service</a>
-      </span>
-    </div>
-  
-    <div class="ast-small-footer-wrap col-12">
-      <div class="copyright">Copyright © 2025 Roamly</div>
-      <div class="ast-footer-credits">
-        <span class="ast-footer-credits-text">
-          All rights reserved. Travel data and maps are powered by third-party services including Google Maps. Roamly is an independent platform and not affiliated with Google or its partners.
+      <div class="container my-4">
+        <h2 class="text-center display-3">Find Your Next Holiday Destination</h2>
+        <p id="instructions" class="text-center text-medium">Search for a city to explore attractions, accommodations, and restaurants.</p>
+        <div class="row mb-4 search-bar">
+          <div class="col-md-8 offset-md-2 search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="cityInput" class="form-control" placeholder="Enter a city name...">
+          </div>
+        </div>
+        <div id="map" class="rounded shadow"></div>
+        <div class="results row text-center">
+          <div class="shadow result-background col-md-4">
+            <h5>Attractions</h5>
+            <ul id="attractions" class="list-unstyled"></ul>
+          </div>
+          <div class="shadow result-background col-md-4">
+            <h5>Hotels</h5>
+            <ul id="hotels" class="list-unstyled"></ul>
+          </div>
+          <div class="shadow result-background col-md-4">
+            <h5>Restaurants</h5>
+            <ul id="restaurants" class="list-unstyled"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="container section">
+      <div class="footer-links">
+        <span class="follow-us col-12 col-md-4">
+          <span>Follow us on social media:</span>
+          <a href="https://www.instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://www.twitter.com" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </span>
+        <span class="important col-12 col-md-4"> | <a href="https://www.google.com/maps/about/" target="_blank">About</a> | <a href="https://support.google.com/maps/?hl=en" target="_blank">Contact</a> | <a href="https://maps.google.com/intl/en-US/policies/privacy/archive/20171002/" target="_blank">Privacy Policy</a> | <a href="https://support.google.com/mapcontentpartners/answer/11974690?hl=en" target="_blank">Terms of Service</a>
         </span>
       </div>
-    </div>
-  </footer>
-  
-</body>
+      <div class="ast-small-footer-wrap col-12">
+        <div class="copyright">Copyright © 2025 Roamly</div>
+        <div class="ast-footer-credits">
+          <span class="ast-footer-credits-text"> All rights reserved. Travel data and maps are powered by third-party services including Google Maps. Roamly is an independent platform and not affiliated with Google or its partners. </span>
+        </div>
+      </div>
+    </footer>
 
-<script src="/assets/js/script.js"></script>
+  <script src="assets/js/script.js">
 
-    <!-- FontAwesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/9e540e0242.js"
-      crossorigin="anonymous"
-    ></script>
+  </script>
+  <!-- FontAwesome Icons -->
+  <script src="https://kit.fontawesome.com/9e540e0242.js" crossorigin="anonymous">
 
-    <!-- Google maps api link -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM&libraries=places&callback=initMap"
-async
-defer></script>
+  </script>
+  <!-- Google maps api link -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM&libraries=places&callback=initMap" async defer>
 
+  </script>  
+  </body>
 </html>

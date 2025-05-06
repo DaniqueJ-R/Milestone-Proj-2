@@ -138,10 +138,6 @@ Manual testing was conducted across key functions:
 Code has been tested using the [HTML Validator](https://validator.w3.org/) and [CSS Validator](https://jigsaw.w3.org/css-validator/) with the following results:
 
 * **index.html** - 0 Errors / 0 Warnings
-* **classes.html** - 0 Errors / 0 Warnings
-* **contact-us.html** - 0 Errors / 0 Warnings
-* **success.html** - 0 Errors / 0 Warnings
-* **style.css** - 0 Errors / 20 warnings
 
 ![CSS No errors](assets/README/css-no-error.png)
 
@@ -149,33 +145,9 @@ Code has been tested using the [HTML Validator](https://validator.w3.org/) and [
 
 The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring on the site (--var).
 
-
-### Browser
-
-To ensure site visitors can view and interact with Zenair's website, cross-browser testing was performed on the test scenarios listed in the table below.
-
-To achieve a 'Pass,' the following criteria had to be met across all website pages;
-1. All nav-menu links work as designed and lead to the correct locations. 
-2. All images/videos are loaded and displayed correctly at the differing media queries
-3. All text uses 'Montserrat Alternates' and 'Sofia Sans Semi Condensed' font style
-4. All external links activate when clicked and open in a new tab or browser window
-5. The form as part of the 'Contact Us' page allows full completion and submission
-6. The form as part of the 'Contact Us' page prevents the form from being sent unless all areas are filled
-7. Header elements can be clicked to return users to the homepage from any site page
-8. All pages retain layout integrity throughout the Body and across the differing media queries
-9. All Page footers are responsive, with hovering changes responsive to the mouse
-
-| Browser                    | Version | Test Facility  | Pass | Partial Pass | Fail | Fail                                                   |
-| -------------------------- | ------- | -------------- | ---- | ------------ | ---- | --------------------------------------------------------------------------------------- |
-| Microsoft Edge (Win 11)    | 96      | ASUS Laptop   | Pass |              |      |                                                                                         |
-| Google Chrome (Win 11)     | 96      | ASUS Laptop   | Pass |              |      |                                                                                         |
-| Firefox (Win 11)           | 95      | ASUS Laptop   | Pass |              |      |                                                                                         |
-| Safari (macOS Mojave)      | 12      | lambdatext.com | Pass |              |      |                                                                                         |
-| Opera (macOS Sierra 10.12) | 74      | lambdatext.com | Pass |              |      |                                                                                         |
-
 ### Device
 
-Testing was performed on the test scenarios listed in the table below to ensure visitors can view and interact with Zenair's website on differing devices.
+Testing was performed on the test scenarios listed in the table below to ensure visitors can view and interact with the Roamly website on differing devices.
 
 To achieve a 'Pass,' the following criteria had to be met across all website pages;
 1. All nav-menu links work as designed and lead to the correct locations. 
