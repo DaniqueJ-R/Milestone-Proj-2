@@ -118,8 +118,15 @@ function geocodeCity(city) {
 }
 
 // Search using new Places API v1 (HTTP)
+// Generates a Google Maps search link
+function generateGoogleMapsLink(name, address) {
+  const query = encodeURIComponent(`${name} ${address}`);
+  return `https://www.google.com/maps/search/?api=1&query=${query}`;
+}
+
+// Searches nearby places and updates the map + list
 async function searchNearby(query, location, elementId, radius = 2000) {
-  const apiKey = "AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM"; // 🔒 Replace with your actual API key
+  const apiKey = "AIzaSyBpcwXrwFvLRqOc0PPMlUT7rmbrRswwPTM"; // Replace with your API key
 
   const url = `https://places.googleapis.com/v1/places:searchText?key=${apiKey}`;
 
@@ -157,10 +164,10 @@ async function searchNearby(query, location, elementId, radius = 2000) {
       data.places.forEach((place) => {
         const name = place.displayName?.text || "Unknown Place";
         const address = place.formattedAddress || "No address";
-
-        // Add marker to map
         const lat = place.location.latitude;
         const lng = place.location.longitude;
+
+        // Create marker on map
         const marker = new google.maps.Marker({
           map,
           position: { lat, lng },
@@ -168,9 +175,16 @@ async function searchNearby(query, location, elementId, radius = 2000) {
         });
         markers.push(marker);
 
-        // Append to list
+        // Generate Google Maps link
+        const mapsLink = generateGoogleMapsLink(name, address);
+
+        // Create list item with link
         const li = document.createElement("li");
-        li.textContent = `${name} – ${address}`;
+        li.innerHTML = `
+          <a href="${mapsLink}" target="_blank" rel="noopener">
+            <i class="fas fa-map-marker-alt" style="color:#d9534f; margin-right:6px;"></i>
+            ${name} – <span style="font-size: 0.9em;">${address}</span>
+          </a>`;
         list.appendChild(li);
       });
     } else {
@@ -180,6 +194,7 @@ async function searchNearby(query, location, elementId, radius = 2000) {
     console.error(`❌ Error during Places API search for "${query}":`, error);
   }
 }
+
 
 // Clear markers and results
 function clearMarkers() {
