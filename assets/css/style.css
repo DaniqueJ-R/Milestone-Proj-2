@@ -67,7 +67,7 @@ h3 {
   margin-left: 17.5rem;
 }
 
-.cust-text-big {
+.welcome-text {
   font-size: 37px;
   font-weight: bold;
 }
@@ -269,7 +269,7 @@ footer {
   margin-bottom: 9px;
   }
 
-  .cust-text-big {
+  .welcome-text {
     margin-left: -69px;
 }
 
@@ -319,7 +319,6 @@ margin-right: 42px;
 }
 }
 
-
 /* Medium devices (tablets, 768px and below) */
 @media only screen and (max-width: 768px) {
 
@@ -346,7 +345,7 @@ margin-top: -20px;
 margin-bottom: 9px;
 }
 
-.cust-text-big {
+.welcome-text {
   margin-left: -69px;
 }
 
@@ -403,4 +402,96 @@ margin-top: 10px;
       
 }
 
+}
+
+/* Large devices (desktops, 992px and below) */
+@media only screen and (max-width: 992px) {
+  h1, h2, h3 {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    font-size: 73px;
+    margin-top: -25px;
+    margin-left: 24px;
+    margin-bottom: 0px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.text-medium {
+  margin-left: -1.5rem;
+}
+
+.logo {
+  width: 50%;
+  height: auto;
+  margin-left: 0px;
+  margin-top: -12px;
+  margin-bottom: 9px;
+  position: relative;
+  left: 14rem;
+}
+
+.welcome-text {
+  margin-left: -69px;
+  position: relative;
+  right: 30rem;
+  bottom: 8rem;
+}
+
+#title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: -20px;
+  margin-left: 0px;
+}
+
+.btn {
+width: 90%;
+padding: 1.6% 0%;
+margin-left: 0px; 
+margin-top: 35px;
+font-size: 28px;
+}
+
+footer {
+margin-top: 3rem;
+}
+
+.footer-links {
+margin-left: 2rem;
+}
+
+.follow-us {
+margin-right: 42px;
+}
+
+.search-box input {
+position: absolute;
+right: 6%;
+width: 84%;
+height: 100%;
+border: none;
+outline: none;
+padding-left: 1rem;
+font-size: 1rem;
+color: var(--highlight-color);
+background-color: transparent;
+}
+
+.search-box i {
+  position: relative;
+  right: 5rem;
+}
+
+#instructions {
+margin-left: 0px;
+font-size: 20px;
+font-weight: bold;
+margin-top: 10px;
+}
+
+.result-background{
+margin: 1rem 0rem;
+}
 }
