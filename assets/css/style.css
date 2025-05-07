@@ -39,8 +39,7 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: var(--primary-font);
   color: var(--primary-color);
   font-size: 150px;
@@ -210,10 +209,10 @@ color: var(--white);
   margin: 0.5rem 0.2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}
 
-.result-background h5 {
+.result-background h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #343a40; /* dark gray */
+  color: var(--Nav-color); 
   font-weight: 600;
 }
 
@@ -310,7 +309,7 @@ footer {
 
 /* Small devices (landscape phones, 576px and below) */
 @media only screen and (max-width: 576px) {
-    h1, h2, h3 {
+    h1, h2 {
       font-family: var(--primary-font);
       color: var(--primary-color);
       font-size: 73px;
@@ -330,7 +329,7 @@ footer {
 
 .logo {
   width: 50%;
-  left:4.5rem
+  left:.5rem
   }
 
   .welcome-text {
@@ -401,7 +400,7 @@ width: 81%;
 /* Medium devices (tablets, 768px and below) */
 @media only screen and (min-width: 576px) and (max-width: 768px) {
 
-  h1, h2, h3 {
+  h1, h2 {
     font-family: var(--primary-font);
     color: var(--primary-color);
     font-size: 73px;
@@ -422,10 +421,12 @@ height: auto;
 margin-left: 0px;
 margin-top: -20px;
 margin-bottom: 9px;
+position: static;
 }
 
 .welcome-text {
   margin-left: -69px;
+  position: static;
 }
 
 .btn {
@@ -493,7 +494,7 @@ margin-top: 10px;
 
 /* Large devices (desktops, 992px and below) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  h1, h2, h3 {
+  h1, h2 {
     font-family: var(--primary-font);
     color: var(--primary-color);
     font-size: 73px;
@@ -507,7 +508,7 @@ margin-top: 10px;
 .text-medium {
   margin-left: -1.5rem;
   position: relative;
-  bottom: 13rem;
+  bottom: 12rem;
   right: 9rem;
   font-size: 22px;
 }

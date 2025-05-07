@@ -169,11 +169,13 @@ To achieve a 'Pass,' the following criteria had to be met across all website pag
 
 Each page of this website has been tested with [Wave (Web Accessibility Evaluation Tool)](https://wave.webaim.org/) with the following errors and recommendations that were fixed: 
 
-* **2 Contrast Errors** Adequate text contrast is necessary for all users, especially users with low vision regarding the left and right controls in the testimonies area.
+* **1 Contrast Errors** Adequate text contrast is necessary for all users, especially users with low vision regarding the left and right controls in the testimonies area.
 
-* **HTML5 video or audio** video defines videos such as movie clips or other video streams. Video content with audio must have synchronised captions and a transcript. Once a transcript is received, it will be updated.
+* **Empty link for socials** a link contains no text, the function or purpose of the link will not be presented to the user. This can introduce confusion for keyboard and screen reader users.
 
-* **Skipped heading level** The class titles' heading level is skipped on the classes page. This was fixed by changing them to H£ tags instead of h5, and the above were already H2 tags. 
+* **Skipped heading level** The heading level is skipped between the two sections. This was fixed by changing them to h3 tags instead of h5, and the above were already H2 tags. 
+
+* **Missing form label** The heading level is skipped between the two sections. This was fixed by changing them to h3 tags instead of h5, and the above were already H2 tags. 
 
 
 ## Deployment 
