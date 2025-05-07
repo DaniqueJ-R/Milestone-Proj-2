@@ -243,12 +243,6 @@ li a {
   font-weight: 500;
 }
 
-/* #instructions {
-  margin-left: 0px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: -10px;
-} */
 
 /* Footer section */
 footer {
@@ -262,7 +256,6 @@ footer {
 }
 
 .follow-us {
-  /* margin-right: 20px; */
   font-size: 20px;
   font-weight: 500;
   color: var(--primary-color);
