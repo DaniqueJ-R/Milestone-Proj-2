@@ -6,16 +6,16 @@
   --main-font: "Boldonse", sans-serif;
   --paragraph-font: "IBM Plex Sans", sans-serif;
   --background-color-1: #ff894c;
-  /* Orange */
   --background-color-2: #ffbd43;
+  /* Orange */
   --Nav-color: #3b6267;
-  /* Mute GReen */
+  /* Mute Green */
   --primary-color: #092650;
   /* Dark Blue */
   --secondary-color: #3e8dec;
   /*Blue*/
   --highlight-color: #51a3ee;
-  /* Purple */
+  /* sky blue */
   --white: #ffffff;
   /* White */
   --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -25,13 +25,14 @@
 
 body {
   max-width: 2000px;
-  min-height: 680px;
+  min-height: 750px;
   margin: 0px auto;
   background: radial-gradient(
     farthest-corner at 58% 12%,
     var(--background-color-2),
     var(--background-color-1)
   );
+  background-repeat: no-repeat;
   font-family: var(--paragraph-font);
   color: var(--secondary-color) !important;
   padding: 20px !important;
@@ -50,6 +51,12 @@ h3 {
   font-weight: bold;
 }
 
+
+
+.fa-brands{
+color: var(--white);
+}
+
 .hidden {
     display: none !important;
   } /* Hide all steps initially */
@@ -61,30 +68,54 @@ h3 {
   outline: 0;
   box-shadow: 0 0 0 0.25rem transparent;
 }
+
+.logo {
+  height: auto;
+  margin-left: 52px;
+  margin-top: 10px;
+  margin-bottom: 9px;
+  position: relative;
+  left: 23rem;
+  width: 38%;
+}
+
 .text-medium {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
-  margin-left: 17.5rem;
+  position: relative;
+  padding-top: 0.7rem;
+  right: 13rem;
+  bottom: 15rem;
+}
+
+#title {
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+    bottom: 15rem;
+    right: 1rem;
 }
 
 .welcome-text {
   font-size: 37px;
   font-weight: bold;
+  position: relative;
+  right: 35rem;
+  bottom: 5rem;
 }
 
 /* Buttons */
 
 .btn {
-    background: #fff;
-    width: 46%;
-    padding: 1.6% 0%;
-    color: var(--highlight-color);
-    margin-left: 65px;
-    margin-top: 63px;
-    font-size: 34px;
-    font-weight: 700;
-    border-radius: 63px;
-    border: none;
+  background: #fff;
+  width: 46%;
+  padding: 1.6% 0%;
+  color: var(--highlight-color);
+  margin-top: -106px;
+  font-size: 34px;
+  font-weight: 700;
+  border-radius: 63px;
+  border: none;
 }
   
   
@@ -96,9 +127,6 @@ h3 {
   }
   
   /* Buttons ends */
-
-/* Search bar styles */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
 
 .search-bar {
   position: relative;
@@ -122,7 +150,7 @@ h3 {
 .search-box input {
   position: absolute;
   right: 2%;
-  width: 96%;
+  width: 92%;
   height: 100%;
   border: none;
   outline: none;
@@ -135,7 +163,10 @@ h3 {
 .search-box i {
   font-size: 1.5rem;
   cursor: pointer;
-}
+  position: relative;
+  right: 16%;
+  }
+
 
 .search-box input::placeholder {
   color: var(--highlight-color);
@@ -146,11 +177,19 @@ h3 {
 
 
 .display-3 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
   color: var(--primary-color);
   margin-top: -20px;
   margin-left: 0px;
+}
+
+#instructions {
+  position: static;
+  margin-left: 0px;
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 7px;
 }
 
 #map {
@@ -159,14 +198,17 @@ h3 {
 }
 .results {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .result-background{
-  padding: 1rem;
-  background-color: #f8f9fa; /* light background */
+  max-width: 19.35rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+  margin: 0.5rem 0.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}
 
 .result-background h5 {
   font-size: 1.2rem;
@@ -185,7 +227,7 @@ li {
   background-color: #ffffff;
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
-  border-left: 4px solid #007bff; /* blue accent */
+  border-left: 4px solid var(--secondary-color); 
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: background-color 0.2s ease;
@@ -193,8 +235,18 @@ li {
 
 li:hover {
   background-color: #f1f1f1;
+  border-left: 4px solid var(--primary-color);
   cursor: pointer;
+  color: var(--primary-color);
+  text-decoration: underline;
 }
+
+li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
 
 /* #instructions {
   margin-left: 0px;
@@ -205,22 +257,34 @@ li:hover {
 
 /* Footer section */
 footer {
-    margin-top: 8rem;
+  margin-top: 5rem;
   } /* Pushes the footer to the bottom */
   
   .footer-links {
-    margin-left: 11rem;
+    min-width: 61rem;
+    display: flex;
+    justify-content: center;
   }
   
   .follow-us {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     font-size: 20px;
     font-weight: 500;
     color: var(--primary-color);
   }
+
   .follow-us i {
-    color: var(--additional-color);
+    color: var(--primary-color);
     padding-left: 3.5px;
+  }
+
+  .follow-us i:hover{
+    transition: color 0.2s ease-in-out;
+    color: var(--highlight-color);
+  }
+
+  .footer-links a {
+    color: transparent;
   }
   
   .important {
@@ -228,12 +292,12 @@ footer {
     color: var(--primary-color);
   }
   .important a {
-    color: var(--additional-color);
+    color: var(--primary-color);
     text-decoration: none;
   }
   
   .important a:hover {
-    color: var(--secondary-color);
+    color: var(--highlight-color);
     text-decoration: underline;
   }
   
@@ -258,69 +322,84 @@ footer {
   }
 
   .text-medium {
-    margin-left: -1.5rem;
+    font-size: 20px;
+    position: relative;
+    right: 1rem;
+    top: 4rem;
 }
 
 .logo {
   width: 50%;
-  height: auto;
-  margin-left: 0px;
-  margin-top: -20px;
-  margin-bottom: 9px;
+  left:4.5rem
   }
 
   .welcome-text {
-    margin-left: -69px;
+            font-size: 28px;
+            right: 11rem;
+            top: 7.5rem;
+}
+
+#title {
+  top: 4rem;
+}
+
+.display-3 {
+    font-size: 2rem;
+    margin-left: 0px;
 }
 
 .btn {
   width: 90%;
   padding: 1.6% 0%;
   margin-left: 0px; 
-  margin-top: 35px;
+  margin-top: 123px;
   font-size: 28px;
 }
+
 
 footer {
   margin-top: 3rem;
 }
 
-.footer-links {
-  margin-left: 2rem;
-}
+    .footer-links {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        text-align: center;
+        min-width: 23rem;
+    }
 
 .follow-us {
 margin-right: 42px;
 }
 
 .search-box input {
-  position: absolute;
-  right: 6%;
-  width: 84%;
-  height: 100%;
-  border: none;
-  outline: none;
-  padding-left: 1rem;
+right: 7%;
+width: 81%;
+}        
+
+.search-box i {
   font-size: 1rem;
-  color: var(--highlight-color);
-  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  right: 0rem;
 }
 
 #instructions {
+  position: static;
   margin-left: 0px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: -1px;
 }
 
-.result-background{
-  margin: 2rem 0.5rem;
-  max-width: 14rem;
+.results{
+  margin-top: 20px;
 }
 }
 
 /* Medium devices (tablets, 768px and below) */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 576px) and (max-width: 768px) {
 
   h1, h2, h3 {
     font-family: var(--primary-font);
@@ -362,7 +441,11 @@ margin-top: 3rem;
 }
 
 .footer-links {
-margin-left: 2rem;
+  display: flex  ;
+  justify-content: flex-start;
+      flex-wrap: wrap;
+      text-align: center;
+      min-width: 28rem;
 }
 
 .follow-us {
@@ -380,6 +463,10 @@ padding-left: 1rem;
 font-size: 1rem;
 color: var(--highlight-color);
 background-color: transparent;
+}
+
+.search-box i {
+  right: 0%;
 }
 
 #instructions {
@@ -405,7 +492,7 @@ margin-top: 10px;
 }
 
 /* Large devices (desktops, 992px and below) */
-@media only screen and (max-width: 992px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   h1, h2, h3 {
     font-family: var(--primary-font);
     color: var(--primary-color);
@@ -419,13 +506,17 @@ margin-top: 10px;
 
 .text-medium {
   margin-left: -1.5rem;
+  position: relative;
+  bottom: 13rem;
+  right: 9rem;
+  font-size: 22px;
 }
 
 .logo {
-  width: 50%;
+  width: 45%;
   height: auto;
-  margin-left: 0px;
-  margin-top: -12px;
+  margin-left: 52px;
+  margin-top: 10px;
   margin-bottom: 9px;
   position: relative;
   left: 14rem;
@@ -434,24 +525,26 @@ margin-top: 10px;
 .welcome-text {
   margin-left: -69px;
   position: relative;
-  right: 30rem;
-  bottom: 8rem;
+  right: 55%;
+  bottom: 3rem;
 }
 
 #title {
-  font-size: 3rem;
+  font-size: 5.5rem;
   font-weight: 700;
   color: var(--primary-color);
   margin-top: -20px;
-  margin-left: 0px;
+  margin-left: 51px;
+  position: relative;
+  bottom: 12rem;
 }
 
 .btn {
 width: 90%;
 padding: 1.6% 0%;
 margin-left: 0px; 
-margin-top: 35px;
 font-size: 28px;
+margin-top: -82px;
 }
 
 footer {
@@ -459,7 +552,7 @@ margin-top: 3rem;
 }
 
 .footer-links {
-margin-left: 2rem;
+min-width: 0rem;
 }
 
 .follow-us {
@@ -481,7 +574,7 @@ background-color: transparent;
 
 .search-box i {
   position: relative;
-  right: 5rem;
+  right: 4.5rem;
 }
 
 #instructions {
@@ -489,9 +582,11 @@ margin-left: 0px;
 font-size: 20px;
 font-weight: bold;
 margin-top: 10px;
+position: static;
 }
 
 .result-background{
-margin: 1rem 0rem;
+  margin: 1rem 0.5rem;
+  max-width: 14rem;
 }
 }
