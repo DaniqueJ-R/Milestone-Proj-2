@@ -85,5 +85,5 @@ Automated testing with Jest was initially planned but deprioritized due to time 
 | Category            | Pass | Fail | Notes                    |
 | ------------------- | ---- | ---- | ------------------------ |
 | Functional          | 5    | 0    | All major flows work     |
-| UI & Responsiveness | 3    | 0    | Tested on 5 screen sizes |
+| UI & Responsiveness | 5    | 0    | Tested on 5 screen sizes |
 | Accessibility       | 3    | 0    | Meets WCAG AA            |

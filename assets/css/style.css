@@ -83,7 +83,7 @@ color: var(--white);
   font-weight: bold;
   position: relative;
   padding-top: 0.7rem;
-  right: 13rem;
+  right: 19rem;
   bottom: 15rem;
 }
 
@@ -96,11 +96,11 @@ color: var(--white);
 }
 
 .welcome-text {
-  font-size: 37px;
+  font-size: 44px;
   font-weight: bold;
   position: relative;
-  right: 35rem;
-  bottom: 5rem;
+  right: 50rem;
+  bottom: 2rem;
 }
 
 /* Buttons */
@@ -328,14 +328,14 @@ footer {
 }
 
 .logo {
-  width: 50%;
-  left:.5rem
+  width: 56%;
+  left: -1.5rem;
   }
 
   .welcome-text {
-            font-size: 28px;
-            right: 11rem;
-            top: 7.5rem;
+    font-size: 28px;
+    right: 4.5rem;
+    top: 3.5rem;
 }
 
 #title {
@@ -361,11 +361,12 @@ footer {
 }
 
     .footer-links {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        text-align: center;
-        min-width: 23rem;
+      display: flex
+      ;
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              text-align: center;
+              min-width: 16rem;
     }
 
 .follow-us {
@@ -479,7 +480,7 @@ margin-top: 10px;
 
 .results {
   position: relative;
-  left: -3rem;
+  
   margin-top: 20px;
   min-width: 40rem;
 }
@@ -553,7 +554,10 @@ margin-top: 3rem;
 }
 
 .footer-links {
-min-width: 0rem;
+  min-width: 44rem;
+
+  
+  justify-content: center;
 }
 
 .follow-us {
@@ -589,5 +593,25 @@ position: static;
 .result-background{
   margin: 1rem 0.5rem;
   max-width: 14rem;
+}
+}
+
+/* Large devices (desktops, 992px and below) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .welcome-text {
+    font-size: 41px;
+    font-weight: bold;
+    position: relative;
+    right: 35rem;
+    bottom: 5rem;
+}
+
+#title {
+  font-weight: 700;
+  color: var(--primary-color);
+  position: relative;
+  bottom: 15rem;
+  right: 2rem;
+  font-size: 145px;
 }
 }

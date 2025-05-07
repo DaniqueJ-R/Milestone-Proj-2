@@ -143,28 +143,7 @@ Code has been tested using the [HTML Validator](https://validator.w3.org/) and [
 
 ![CSS warnings](assets/README/css-warnings.png)
 
-The warnings are due to 1) import of the Google fonts, 2) a webkit extension for Safari support of the flip-card effect used on the home page, and  3) using the root format for most colouring on the site (--var).
-
-### Device
-
-Testing was performed on the test scenarios listed in the table below to ensure visitors can view and interact with the Roamly website on differing devices.
-
-To achieve a 'Pass,' the following criteria had to be met across all website pages;
-1. All nav-menu links work as designed and lead to the correct locations. 
-2. All images/videos are loaded and displayed correctly at the differing media queries
-3. All text uses 'Montserrat Alternates' and 'Sofia Sans Semi Condensed' font style
-4. All external links activate when clicked and open in a new tab or the app
-5. The form as part of the 'Contact Us' page allows full completion and submission
-6. The form as part of the 'Contact Us' page prevents the form from being sent unless all areas are filled
-7. Header elements can be clicked to return users to the homepage from any site page
-8. All pages retain layout integrity throughout the Body and across the differing media queries
-
-| Device       | Type               | Pass | Partial Pass | Fail |                                                                                                                                                     |
-| ------------ | ------------------ | ---- | ------------ | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mobile Phone | iPhone SE          | Pass |              |      |  |
-| Mobile Phone | Samsung Galaxy S20 Ultra | Pass |              |      |
-| Tablet       | iPad Air        | Pass |              |      |                                                                                   |
-| Laptop       | ASUS Zenbook 14"   | Pass |              |      |                                                                                                     
+The warnings are due to 1) import of the Google fonts, and  2) using the root format for most colouring on the site (--var).                                                                                                 
 ### Accessibility
 
 Each page of this website has been tested with [Wave (Web Accessibility Evaluation Tool)](https://wave.webaim.org/) with the following errors and recommendations that were fixed: 
@@ -175,27 +154,29 @@ Each page of this website has been tested with [Wave (Web Accessibility Evaluati
 
 * **Skipped heading level** The heading level is skipped between the two sections. This was fixed by changing them to h3 tags instead of h5, and the above were already H2 tags. 
 
-* **Missing form label** The heading level is skipped between the two sections. This was fixed by changing them to h3 tags instead of h5, and the above were already H2 tags. 
+* **Missing form label** A form control does not have a properly associated text label, function or purpose of that form control may not be presented to screen reader users. 
+
+* **ARIA hidden on search bar** Ensure the content is intended to be hidden from screen reader users. The hidden content must not contain any navigable elements. 
 
 
 ## Deployment 
 
 This project was deployed using the steps below, with the version releasing active. Please do not change files within this repository, as any changes pushed to the main branch will be automatically reflected on the live website. Instead, please follow the second set of steps, which will guide you to forking and cloning the website to make changes without impacting the live website. Thanks!
 
-1. Logged into my [GitHub repository](https://github.com/DaniqueJ-R/Milestone-Project-1)
+1. Logged into my [GitHub repository](https://daniquej-r.github.io/Milestone-Proj-2/)
 2. Click the "Settings" button in the main Repository menu.
 3. Clicked "Pages" from the left-hand side navigation menu.
 4. Within the Source section, click the "Branch" button and change from 'None' to 'Main' in the dropdown menu.
 5. The page automatically refreshed with a URL displayed.
 6. Tested the link by clicking on the URL.
 
-The live website can be found here: https://daniquej-r.github.io/Milestone-Project-1/index.html.
+The live website can be found here: https://daniquej-r.github.io/Milestone-Proj-2/index.html.
 
 To fork this website to either propose changes or to use it as an idea for another website, follow these steps:
 1. If you haven't yet, you should set up Git. Don't forget to set up authentication to GitHub.com from Git as well.
-2. Navigate to the [Milestone Project 1 GitHub repository](https://github.com/DaniqueJ-R/Milestone-Project-1).
+2. Navigate to the [Milestone Project 2 GitHub repository](https://daniquej-r.github.io/Milestone-Proj-2/).
 3. Click the 'Fork' button on the upper right part of the page. It's in between 'Watch' and 'Star'.
-4. You will now have a fork of the Milestone Project 1 repository added to your GitHub profile. Navigate to your profile and find the forked repository to add the required files.
+4. You will now have a fork of the Milestone Project 2 repository added to your GitHub profile. Navigate to your profile and find the forked repository to add the required files.
 5. Click the' Code' button Above the list of forked files.
 6. A dropdown menu will appear, providing a choice of cloning options. Select the one that applies to your setup.
 Further details on completing the final step are on the GitHub ['Fork a Repo'](https://docs.github.com/en/get-started/quickstart/fork-a-repo) page.
