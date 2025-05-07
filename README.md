@@ -1,6 +1,6 @@
 # Roamly – City Explorer Web App
 
-![Website Mockup](assets/README/responsive%20image.png)
+![Website Mockup](assets/images/mockup.png)
 
 [Link to Live Website](https://daniquej-r.github.io/Milestone-Proj-2/index.html)
 
@@ -102,7 +102,7 @@ Consideration was given to desktop, tablet, and mobile users. The website is res
 
 ### Desktop Wireframe 
 
-![](assets/images/Wireframe-desktop.png)
+![Desktop Wireframe](assets/images/Wireframe-desktop.png)
 
 ### Tablet/Phone Wireframe 
 
@@ -139,11 +139,12 @@ Code has been tested using the [HTML Validator](https://validator.w3.org/) and [
 
 * **index.html** - 0 Errors / 0 Warnings
 
-![CSS No errors](assets/README/css-no-error.png)
+![CSS No errors](assets/images/css-no-error.png)
 
-![CSS warnings](assets/README/css-warnings.png)
+![CSS warnings](assets/images/css-warnings.png)
 
-The warnings are due to 1) import of the Google fonts, and  2) using the root format for most colouring on the site (--var).                                                                                                 
+The warnings are due to 1) import of the Google fonts, and  2) using the root format for most colouring on the site (--var).           
+
 ### Accessibility
 
 Each page of this website has been tested with [Wave (Web Accessibility Evaluation Tool)](https://wave.webaim.org/) with the following errors and recommendations that were fixed: 
@@ -158,6 +159,15 @@ Each page of this website has been tested with [Wave (Web Accessibility Evaluati
 
 * **ARIA hidden on search bar** Ensure the content is intended to be hidden from screen reader users. The hidden content must not contain any navigable elements. 
 
+### Performance
+
+Using Lighthouse performance testing within Chrome Developer Tools, the page's performance was tested on desktop and mobile devices. The results from this testing are outlined in the images below. The tests showed no issues in loadin up the innformattion, giving both devices a passing mark.
+
+* **Lighthousse Desktop**
+![Lighthousse Desktop](assets/images/lighthouse-desktop.png)
+
+* **Lighthousse Desktop**
+![Lighthousse Mobile](assets/images/lighthouse-mobile.png)
 
 ## Deployment 
 
@@ -189,18 +199,16 @@ Further details on completing the final step are on the GitHub ['Fork a Repo'](h
 ### People
 
 * Mentor Brian Macharia for guiding and advising throughout the project's lifecycle.
-* Rick Atherton, Elaine Broche and Ilyascan OIgun are sources of information for README content and layout.
+* Rick Atherton and eldowling are sources of information for README content and layout.
 * Code Institute Slack community for peer reviewing the website.
 
 ### Software & Web Applications
 
-* [Balsamiq](https://balsamiq.com/) - Used to build wireframes in the Skelton phase. 
+* [Mockflow](https://app.mockflow.com/editor) - Used to build wireframes 
 * [GitHub](https://github.com/) - As a hosting repository for the deployment site. 
 * [GitPod](https://gitpod.io/) and [Visual Studio Code](https://code.visualstudio.com/) - for writing the code. Using the command line for committing and pushing to Git Hub.  The website was coded using HTML, Bootstrap & CCS, with used for an IDE.
 * [W3schools](https://www.w3schools.com/) - Source of 'How to...' information throughout the build.
 * [Stackoverflow](https://stackoverflow.com/) - Source of 'How to...' information throughout the build.
-* [iloveimg](www.iloveimg.com) - For compressing images to improve page load time.
-* [Invideo.ai](https://ai.invideo.io/workspaces) - for generation placeholder video on the index page.
 * [Wave](https://wave.webaim.org/) - Accessibility Testing to ensure content is readable for all users.
 * [HTML Validator](https://validator.w3.org/) - For validating the HMTL code, no errors were found.
 * [CSS Validator](https://validator.w3.org/) - For validating CSS code, no errors were found.
@@ -208,25 +216,64 @@ Further details on completing the final step are on the GitHub ['Fork a Repo'](h
 
 ### Code
 
-* [Love Running](https://github.com/DaniqueJ-R/Love-Running-Template) - for inspiration on the schedule element and text overlay for the hero image and a reference for certain coding aspects throughout the build
+* [Milestone-Project-1](https://github.com/DaniqueJ-R/Milestone-Project-1/deployments/github-pages) - for inspiration on the schedule element and text overlay for the hero image and a reference for certain coding aspects throughout the build
 * [Boardwalk Games](https://github.com/DaniqueJ-R/boardwalk-games) - for inspiration on the carousel, booking form, footer, and nav-bar elements, and a reference for certain coding aspects throughout the build
-* [CodePen](https://codepen.io/Washable/pen/Oxqjbq) - For text-only carousel for testemonies.
+* [Bootstraps](https://getbootstrap.com/docs/5.3/layout/breakpoints/) - For te sizing and breakpoints.
 * [stackoverflow](https://stackoverflow.com/questions/33642916/how-do-i-make-my-bootstrap-carousel-the-full-width-of-the-page) - For header carousel to cover screen with overlay
 
 ### Content
 
 * [Google fonts](https://fonts.google.com/) - The free family font is used throughout the site for 'Montserrat Alternates' and 'Sofia Sans Semi Condensed'.
 * [Font Awesome](https://fontawesome.com/) - Free social media icons sourced from FA.
-* [Freepik](https://freepik.com) - Source of images for the entire build.
-* [FitLab Studio](https://www.fitlabstudiosja.com/) - inspiration for general layout and social media icons in the nav area, as well as FAQs 
-* [Pole People](https://polepeople.co.uk/) - inspiration for general layout and FAQ's
+* [Freepik](https://freepik.com) - Source of logo for the entire build.
+
+* [Home from Home Holiday Search](https://eldowling.github.io/holiday-search-google-maps/) - inspiration for general layout and functionaity
 
 ### Inspiration
 
-* [FitLab Studio](https://www.fitlabstudiosja.com/) - inspiration for general layout and social media icons in the nav area, as well as FAQs 
-* [Pole People](https://polepeople.co.uk/) - inspiration for general layout and FAQ's
-* [Akila Pole Studio](https://www.akilapolestudio.com/)- Source of inspiration on design and features that improve accessibility. 
-* [Diva Flow Pole](https://www.divaflowpole.com/)- Source of inspiration on design and features that improve accessibility. 
-* [Ultimate Pole](https://www.ultimatepole.co.uk/classpacks) - Source of inspiration on design and features that improve accessibility. 
+* [Project Travel Advisor](https://github.com/adrianhajdin/project_travel_advisor) - inspiration for general layout and markers on map 
+
+---
+
+## Credits & Inspiration
+
+This project was developed with the help of various resources, tutorials, and design references. The following tools, platforms, and websites inspired both the technical implementation and the user experience:
+
+### People
+
+* Mentor Brian Macharia for guiding and advising throughout the project's lifecycle.
+* Rick Atherton and eldowling are sources of information for README content and layout.
+* Code Institute Slack community for peer reviewing the website.
+
+### Technical Inspiration
+
+* [Project Travel Advisor (GitHub)](https://github.com/adrianhajdin/project_travel_advisor) – Provided foundational ideas for integrating Google Maps with location-based data and a responsive travel UI.
+* [Google Maps JS Samples (GitHub)](https://github.com/googlemaps/js-samples) – Reference for Maps JavaScript and Places API usage.
+* [Google Maps Platform Documentation](https://developers.google.com/maps) – Main reference for API configuration, geolocation, and map customization.
+* [Places Text Search Example (GitHub)](https://github.com/googlemaps/js-samples/tree/main/places/places-textsearch) – Used as a model for the search functionality.
+* [JavaScript Mastery YouTube](https://www.youtube.com/c/JavaScriptMastery) – Tutorial content that guided application structure and Google Maps integration.
+* [Build a Travel App (YouTube)](https://www.youtube.com/watch?v=yn3mSmfNcdQ) – Influenced UI/UX and code architecture for the project.
+* [Traversy Media YouTube](https://www.youtube.com/c/TraversyMedia) – Helpful for clean explanations and tips on JavaScript and Google Maps usage.
+* [Google Maps JavaScript API Crash Course](https://www.youtube.com/watch?v=Zxf1mnP5zcw) – Key resource for learning how to implement map features effectively.
+
+### 🎨 Design & Accessibility Inspiration
+
+* [Project Travel Advisor](https://github.com/adrianhajdin/project_travel_advisor) - inspiration for general layout and markers on map 
+* [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview) – Enabled interactive, responsive maps that adapt across devices and screen sizes.
+* [Places API](https://developers.google.com/maps/documentation/places/web-service/overview) – Used for accessible location search and detailed business information retrieval.
+* [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) – Added location-awareness features, allowing users to find nearby studios easily.
+* [Map Controls & UI Customization](https://developers.google.com/maps/documentation/javascript/controls) – Allowed for minimalist and accessible map controls tailored to user needs.
+* [Marker Clustering](https://developers.google.com/maps/documentation/javascript/marker-clustering) – Enhanced map usability when displaying multiple locations.
+
+
+### 🔧 General Web Resources
+
+* [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) – Used for responsive layout and UI components.
+* [MDN Web Docs](https://developer.mozilla.org) – Reference for JavaScript, DOM APIs, and web standards.
+* [W3Schools](https://www.w3schools.com) – Supplemented front-end development knowledge and syntax review.
+* [Google fonts](https://fonts.google.com/) - The free family font is used throughout the site.
+* [Font Awesome](https://fontawesome.com/) - Free social media icons sourced from FA.
+* [Freepik](https://freepik.com) - Source of logo for the entire build.
+
 
 
